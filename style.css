@@ -1,0 +1,1086 @@
+                                           :root {
+                                              --primary-color: #5924ed;
+                                              --secondary-black: #0d081a;
+                                              --secondary-gray: #48464b;
+                                              --body-bg: #efebfa;
+                                          }
+                                          
+                                          * {
+                                              padding: 0;
+                                              margin: 0;
+                                              box-sizing: border-box;
+                                          }
+                                          
+                                          html {
+                                              font-family: 'Roboto Mono';
+                                              font-size: 12px !important;
+                                              scroll-behavior: smooth;
+                                          }
+                                          
+                                          body {
+                                              background-color: var(--body-bg);
+                                          }
+                                          
+                                          img {
+                                              width: 100%;
+                                              height: 100%;
+                                          }
+                                          
+                                          a {
+                                              color: black;
+                                              text-decoration: none;
+                                          }
+                                          
+                                          section {
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                          }
+                                          
+                                          .container {
+                                              width: 90%;
+                                              margin: 0 auto;
+                                              max-width: 1000px;
+                                          }
+                                          
+                                          p {
+                                              font-size: 1.6rem;
+                                              color: var(--secondary-black);
+                                          }
+                                          
+                                          .section-heading {
+                                              font-size: clamp(2rem, 10vw, 8rem);
+                                              text-transform: uppercase;
+                                              font-family: 'Montserrat';
+                                              letter-spacing: 0.2rem;
+                                              text-align: center;
+                                              position: relative;
+                                              margin-bottom: 10rem;
+                                          }
+                                          
+                                          .section-heading::before {
+                                              content: attr(data-outline);
+                                              position: absolute;
+                                              left: 2%;
+                                              top: -20%;
+                                              width: 100%;
+                                              text-align: center;
+                                              text-transform: uppercase;
+                                              font-family: 'Montserrat';
+                                              letter-spacing: 0.2rem;
+                                              color: transparent;
+                                              /* -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.103); */
+                                              -webkit-text-stroke: 1.5px #5a24ed2f;
+                                              z-index: -1;
+                                          }
+                                          
+                                          .buttons {
+                                              margin-top: 3rem;
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: flex-start;
+                                              gap: 2rem;
+                                          }
+                                          
+                                          .primary-btn {
+                                              display: inline-block;
+                                              background-color: var(--primary-color);
+                                              color: white;
+                                              font-size: 1.8rem;
+                                              padding: 0.6em 1.6em;
+                                              border-radius: 50px;
+                                          }
+                                          
+                                          .buttons .primary-btn.outline {
+                                              background-color: transparent;
+                                              border: 2px solid var(--primary-color);
+                                              color: var(--primary-color);
+                                          }
+                                          
+                                          .buttons svg {
+                                              width: 50px;
+                                              color: var(--primary-color);
+                                          }
+                                          /* scroll Top/Up Button */
+                                          
+                                          .scroll-top {
+                                              z-index: 100;
+                                              height: 60px;
+                                              width: 60px;
+                                              background-color: white;
+                                              position: fixed;
+                                              bottom: 10px;
+                                              right: 10px;
+                                              cursor: pointer;
+                                              border-radius: 6px;
+                                              box-shadow: 0px 0px 20px rgba(71, 40, 182, 0.226);
+                                              /* hover effect default */
+                                              transform: scale(0.9);
+                                              transition: 0.3s ease-in-out transform;
+                                              /* for centering the icon */
+                                              /* display: flex; */
+                                              display: none;
+                                              align-items: center;
+                                              justify-content: center;
+                                          }
+                                          
+                                          .scroll-top svg {
+                                              width: 50%;
+                                              color: black;
+                                              pointer-events: none;
+                                          }
+                                          
+                                          .scroll-top:hover {
+                                              /* transform: scale(1); */
+                                          }
+                                          /* Navigation Section */
+                                          
+                                          #navigation {
+                                              position: fixed;
+                                              right: 50px;
+                                              height: auto;
+                                              top: 20px;
+                                              z-index: 100;
+                                          }
+                                          
+                                          #navigation .nav-icon {
+                                              width: 50px;
+                                              height: 50px;
+                                              margin: 0 auto;
+                                              margin-right: 0;
+                                              cursor: pointer;
+                                              background-color: var(--primary-color);
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                          }
+                                          
+                                          #navigation .nav-icon svg {
+                                              width: 80%;
+                                              color: white;
+                                          }
+                                          
+                                          #nav-content {
+                                              position: fixed;
+                                              right: 0;
+                                              width: 80%;
+                                              max-width: 800px;
+                                              height: 100%;
+                                              z-index: 100;
+                                              background-color: var(--secondary-black);
+                                              color: white;
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                              overflow: hidden;
+                                              transform: translateX(100%);
+                                              transition: 0.3s ease transform;
+                                          }
+                                          
+                                          #nav-content.show {
+                                              transform: translateX(0);
+                                              box-shadow: -6px 0px 29px 7px #000000a3;
+                                          }
+                                          
+                                          #nav-content .section-heading {
+                                              text-align: left;
+                                          }
+                                          
+                                          #nav-content .section-heading::before {
+                                              content: 'Menu';
+                                              text-align: left;
+                                              -webkit-text-stroke: 1.5px #afadad25;
+                                          }
+                                          
+                                          #nav-content .wrapper {
+                                              width: 70%;
+                                              position: relative;
+                                          }
+                                          
+                                          #nav-content ul {
+                                              list-style: none;
+                                              text-align: left;
+                                          }
+                                          
+                                          #nav-content ul li {
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          #nav-content ul li a {
+                                              display: inline-block;
+                                              width: 100%;
+                                              color: white;
+                                              font-size: 5rem;
+                                              font-family: 'Montserrat';
+                                              /* position: relative; */
+                                          }
+                                          
+                                          #nav-content ul li a::after {
+                                              content: attr(data-text);
+                                              pointer-events: none;
+                                              position: absolute;
+                                              right: -150px;
+                                              bottom: 30%;
+                                              width: 100%;
+                                              color: transparent;
+                                              -webkit-text-stroke: 1.5px #afadad25;
+                                              opacity: 0;
+                                              transition: 0.3s ease;
+                                              transition-property: opacity, transform;
+                                              z-index: -1;
+                                              text-align: center;
+                                              transform: rotate(90deg) scale(3);
+                                          }
+                                          
+                                          #nav-content ul li a:hover::after {
+                                              opacity: 1;
+                                              transform: scale(3) translateY(10px) rotate(90deg);
+                                          }
+                                          
+                                          #nav-content .close-btn {
+                                              position: absolute;
+                                              left: 10px;
+                                              top: 10px;
+                                              color: white;
+                                              width: 40px;
+                                              height: 40px;
+                                              background-color: var(--primary-color);
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                              border-radius: 50%;
+                                              cursor: pointer;
+                                              transition: 0.3s ease background-color;
+                                          }
+                                          
+                                          #nav-content .close-btn:hover {
+                                              background-color: crimson;
+                                          }
+                                          
+                                          #nav-content .close-btn svg {
+                                              width: 80%;
+                                          }
+                                          
+                                          @media only screen and (max-width: 768px) {
+                                              .lancer {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  flex-direction: column;
+                                                  padding: 10px;
+                                              }
+                                              .also {
+                                                  width: 100px;
+                                              }
+                                              #navigation {
+                                                  right: 10px;
+                                                  top: 10px;
+                                              }
+                                              #nav-content nav ul li a::after {
+                                                  display: none;
+                                              }
+                                              #nav-content .section-heading {
+                                                  text-align: right;
+                                                  margin-bottom: 5rem;
+                                              }
+                                              #nav-content .section-heading::before {
+                                                  text-align: right;
+                                              }
+                                              #nav-content nav ul {
+                                                  text-align: right;
+                                              }
+                                              #nav-content nav ul li a {
+                                                  font-size: 2.5rem;
+                                              }
+                                              #nav-content .wrapper {
+                                                  width: 90%;
+                                              }
+                                              .target {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  align-items: center;
+                                                  padding-bottom: 10px;
+                                                  flex-direction: column;
+                                              }
+                                              .funct {
+                                                  position: relative !important;
+                                              }
+                                              .target self {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  align-items: center;
+                                                  padding-bottom: 10px;
+                                                  flex-direction: column;
+                                              }
+                                              .targetkill {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  align-items: center;
+                                                  padding-bottom: 10px;
+                                                  flex-direction: column;
+                                              }
+                                              .functkill {
+                                                  position: relative !important;
+                                              }
+                                          }
+                                          
+                                          .ttt {
+                                              color: darkblue;
+                                          }
+                                          
+                                          a {
+                                              color: black;
+                                              text-decoration: none;
+                                          }
+                                          
+                                          #hero {
+                                              width: 100%;
+                                              padding-top: 10rem;
+                                          }
+                                          
+                                          .container {
+                                              width: 90%;
+                                              margin: 0% auto;
+                                              max-width: 1000px;
+                                          }
+                                          
+                                          #hero .container {
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                          }
+                                          
+                                          #hero .container .left {
+                                              flex: 6;
+                                          }
+                                          
+                                          #hero .container .right {
+                                              flex: 8;
+                                          }
+                                          
+                                          #hero .left .subheading {
+                                              font-size: 1.8rem;
+                                              font-weight: 500;
+                                              color: rgb(8, 8, 141);
+                                          }
+                                          
+                                          #hero .left .heading {
+                                              font-size: 4rem;
+                                              font-family: 'montserrat', sans-serif;
+                                              font-weight: 700;
+                                          }
+                                          
+                                          .buttons {
+                                              margin-top: 3rem;
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: flex-start;
+                                              gap: 2rem;
+                                          }
+                                          
+                                          .buttons svg {
+                                              width: 50px;
+                                              color: rgb(5, 4, 61);
+                                          }
+                                          
+                                          .primary-btn {
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              display: inline-block;
+                                              background-color: #5924ed;
+                                              color: white;
+                                              font-size: 1.8rem;
+                                              padding: 0.6rem 1.6rem;
+                                              border-radius: 50px;
+                                          }
+                                          
+                                          #hero .left .desc {
+                                              margin-top: 2.5rem;
+                                              max-width: 400px;
+                                              font-size: 1.6rem;
+                                              color: #48464b
+                                          }
+                                          
+                                          .right {
+                                              text-align: right;
+                                          }
+                                          
+                                          #hero .right .img {
+                                              width: 100%;
+                                              max-width: 450px;
+                                              height: 600px;
+                                              object-fit: cover;
+                                              object-position: 50% 30%;
+                                          }
+                                          
+                                          img {
+                                              width: 80%;
+                                              height: 80%;
+                                              border-radius: 12px;
+                                          }
+                                          
+                                          @media only screen and (max-width:770px) {
+                                              #hero .container {
+                                                  flex-direction: column-reverse;
+                                              }
+                                              #hero .container .right {
+                                                  text-align: center;
+                                                  flex: 1;
+                                                  margin-bottom: 2rem;
+                                              }
+                                              #hero .container .left {
+                                                  text-align: center;
+                                                  padding-right: 0;
+                                                  flex: 1;
+                                                  height: fit-content;
+                                              }
+                                              #hero .left .buttons {
+                                                  justify-content: center;
+                                              }
+                                              #hero .container .left .heading {
+                                                  font-size: 4rem;
+                                              }
+                                              .main {
+                                                  display: flex;
+                                                  flex-direction: column;
+                                              }
+                                              .desing {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  flex-wrap: wrap;
+                                              }
+                                              .threeset {
+                                                  display: flex;
+                                                  align-items: center;
+                                                  flex-wrap: wrap;
+                                              }
+                                              .clint {
+                                                  display: flex;
+                                                  align-items: center;
+                                                  justify-content: center;
+                                                  flex-direction: column;
+                                                  flex-wrap: wrap;
+                                              }
+                                          }
+                                          
+                                          .main {
+                                              width: 100%;
+                                              display: flex;
+                                              justify-content: center;
+                                              align-items: center;
+                                          }
+                                          
+                                          .card {
+                                              max-width: 330px;
+                                              display: flex;
+                                              flex-direction: column;
+                                              align-items: center;
+                                              padding: 20px;
+                                              margin-top: 40px;
+                                              transition: 3s ease;
+                                          }
+                                          
+                                          .webww:hover {
+                                              background-color: rgb(8 69 241 / 35%);
+                                              border-radius: 12px;
+                                          }
+                                          
+                                          .ulux:hover {
+                                              background-color: rgba(0, 255, 115, 0.493);
+                                              border-radius: 12px;
+                                          }
+                                          
+                                          .seo:hover {
+                                              border-radius: 12px;
+                                              background-color: rgba(0, 255, 115, 0.151);
+                                          }
+                                          
+                                          .bol {
+                                              font-size: 24px;
+                                              border-radius: 50%;
+                                              background-color: rgb(8 69 241 / 35%);
+                                              padding: 10px;
+                                          }
+                                          
+                                          .bol2 {
+                                              font-size: 24px;
+                                              border-radius: 50%;
+                                              background-color: rgba(0, 255, 115, 0.493);
+                                              padding: 10px;
+                                          }
+                                          
+                                          .bol3 {
+                                              font-size: 25px;
+                                              border-radius: 50%;
+                                              background-color: rgba(0, 255, 115, 0.151);
+                                              padding: 10px;
+                                          }
+                                          
+                                          .desing {
+                                              font-size: 1.5rem;
+                                              padding: 10px 8px;
+                                              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                                          }
+                                          
+                                          .dfhd {
+                                              display: flex;
+                                              justify-content: center;
+                                          }
+                                          
+                                          .headii {
+                                              margin-top: 4rem;
+                                              font-size: clamp(1rem, 8vw, 8rem);
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 4px;
+                                              text-align: center;
+                                              position: relative;
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          .headii::before {
+                                              content: attr(data-outline);
+                                              position: absolute;
+                                              left: 5%;
+                                              top: -20%;
+                                              text-align: center !important;
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 0.2rem;
+                                              color: transparent;
+                                              -webkit-text-stroke: 1.5px #5a24ed2f;
+                                              z-index: -1;
+                                          }
+                                          
+                                          .term {
+                                              display: flex;
+                                              justify-content: center;
+                                          }
+                                          
+                                          .monal {
+                                              margin-top: 4rem;
+                                              font-size: clamp(1rem, 8vw, 8rem);
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 4px;
+                                              text-align: center;
+                                              position: relative;
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          .monal::before {
+                                              content: attr(data-outline);
+                                              position: absolute;
+                                              left: 5%;
+                                              top: -20%;
+                                              text-align: center !important;
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 0.2rem;
+                                              color: transparent;
+                                              -webkit-text-stroke: 1.5px #5a24ed2f;
+                                              z-index: -1;
+                                          }
+                                          
+                                          .open {
+                                              display: flex;
+                                              justify-content: center;
+                                              align-items: center;
+                                          }
+                                          
+                                          .pic {
+                                              border-radius: 50%;
+                                              width: 100px;
+                                              height: 90px;
+                                              margin-top: -5rem;
+                                          }
+                                          
+                                          .oneset {
+                                              padding: 25px;
+                                              height: fit-content;
+                                              width: 20%;
+                                              min-width: 200px;
+                                              border-radius: 52px 30px 59px 60px;
+                                              border: 1px solid #efebfa;
+                                              background-color: #efebfa;
+                                              transform: skew( 2deg, 9deg);
+                                              margin: 10px;
+                                              box-shadow: 2px 4px 15px 10px #4705fc1f;
+                                          }
+                                          
+                                          .lone {
+                                              transform: skew( -2deg, -9deg);
+                                          }
+                                          
+                                          .tech {
+                                              text-align: center;
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .cto {
+                                              color: gray;
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .work {
+                                              color: #48464b;
+                                              text-decoration: none;
+                                              text-align: start;
+                                              margin-bottom: 20px;
+                                              /* padding: 1.5rem; */
+                                          }
+                                          
+                                          .dot {
+                                              margin-top: 5px;
+                                              font-size: 1.5rem;
+                                              color: rgb(0, 195, 255);
+                                          }
+                                          
+                                          .twoset {
+                                              margin-top: 20px;
+                                              padding: 20px;
+                                              height: fit-content;
+                                              width: 30%;
+                                              min-width: 200px;
+                                              border-radius: 52px 30px 59px 60px;
+                                              border: 1px solid #efebfa;
+                                              background-color: #efebfa;
+                                              transform: skew( 350deg, 354deg);
+                                              box-shadow: 0px 0px 10px 10px #4705fc1f;
+                                          }
+                                          
+                                          .alone {
+                                              transform: skew( -350deg, -354deg);
+                                          }
+                                          
+                                          .techno {
+                                              text-align: center;
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .lastset {
+                                              margin: 10px;
+                                              padding: 25px;
+                                              height: fit-content;
+                                              width: 20%;
+                                              min-width: 200px;
+                                              border-radius: 52px 30px 59px 60px;
+                                              border: 1px solid #efebfa;
+                                              background-color: #efebfa;
+                                              transform: skew( 2deg, 9deg);
+                                              box-shadow: 2px 4px 15px 10px #4705fc1f;
+                                          }
+                                          
+                                          .balone {
+                                              transform: skew( -2deg, -9deg);
+                                          }
+                                          
+                                          .technolo {
+                                              text-align: center;
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .threeset {
+                                              display: flex;
+                                              justify-content: center;
+                                              padding: 20px;
+                                              gap: 4rem;
+                                          }
+                                          
+                                          .stats {
+                                              display: flex;
+                                              justify-content: center;
+                                          }
+                                          
+                                          .status {
+                                              margin-top: 4rem;
+                                              font-size: clamp(1rem, 8vw, 8rem);
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 4px;
+                                              text-align: center;
+                                              position: relative;
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          .status::before {
+                                              content: attr(data-outline);
+                                              position: absolute;
+                                              left: 5%;
+                                              top: -20%;
+                                              text-align: center !important;
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 0.2rem;
+                                              color: transparent;
+                                              -webkit-text-stroke: 1.5px #5a24ed2f;
+                                              z-index: -1;
+                                          }
+                                          
+                                          .happy {
+                                              max-width: 363px;
+                                              background-color: rgba(255, 238, 0, 0.322);
+                                              padding: 2rem;
+                                          }
+                                          
+                                          .clint {
+                                              display: flex;
+                                              justify-content: center;
+                                              width: 100%;
+                                              max-width: 1200px;
+                                              padding: 45px;
+                                              margin: auto;
+                                          }
+                                          
+                                          .more {
+                                              background-color: rgba(0, 255, 115, 0.329);
+                                          }
+                                          
+                                          .expri {
+                                              background-color: #4705fc50;
+                                          }
+                                          
+                                          .full {
+                                              font-size: 3rem;
+                                              font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                          }
+                                          
+                                          .zero {
+                                              margin-top: 5px;
+                                              font-weight: bold;
+                                          }
+                                          
+                                          .then {
+                                              margin-top: 10px;
+                                              color: #0d081a;
+                                              font-size: 1.2rem;
+                                              font-family: 'Roboto Mono';
+                                          }
+                                          
+                                          .abt {
+                                              display: flex;
+                                              justify-content: center;
+                                              align-items: center;
+                                          }
+                                          
+                                          .out {
+                                              margin-top: 4rem;
+                                              font-size: clamp(1rem, 8vw, 8rem);
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 4px;
+                                              text-align: center;
+                                              position: relative;
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          .out::before {
+                                              content: attr(data-outline);
+                                              position: absolute;
+                                              left: 5%;
+                                              top: -20%;
+                                              text-align: center !important;
+                                              text-transform: uppercase;
+                                              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                              letter-spacing: 0.2rem;
+                                              color: transparent;
+                                              -webkit-text-stroke: 1.5px #5a24ed2f;
+                                              z-index: -1;
+                                          }
+                                          
+                                          .backgo {
+                                              width: 100%;
+                                              width: 300px;
+                                              text-align: center;
+                                              background-color: #efebfa;
+                                              box-shadow: 2px 4px 15px 10px #4705fc1f;
+                                              border-radius: 12px;
+                                              padding: 20px;
+                                          }
+                                          
+                                          .png {
+                                              margin-top: 18px;
+                                              border-radius: 100%;
+                                              height: 70px;
+                                              width: 70px;
+                                          }
+                                          
+                                          .lancer {
+                                              max-width: 760px;
+                                              display: flex;
+                                              justify-content: center;
+                                              align-items: center;
+                                              /* padding: 40px; */
+                                              margin: auto;
+                                          }
+                                          
+                                          .also {
+                                              width: 70%;
+                                              padding: 30px;
+                                          }
+                                          
+                                          .dege {
+                                              padding: 10px;
+                                              color: #0d081a;
+                                          }
+                                          
+                                          .this {
+                                              margin-bottom: 10px;
+                                              color: darkblue;
+                                          }
+                                          
+                                          .world {
+                                              color: #0d081a;
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .resu {
+                                              margin-top: 20px;
+                                              background-color: #5924ed;
+                                              color: honeydew;
+                                              border: none;
+                                              border-radius: 50px;
+                                              font-size: 19px;
+                                              padding: 20px;
+                                          }
+                                          
+                                          .hire {
+                                              border: solid 1px #5924ed;
+                                              border-radius: 30px;
+                                              color: #5924ed;
+                                              font-size: 22px;
+                                              width: 148px;
+                                              padding: 10px;
+                                              margin-inline: 20px;
+                                          }
+                                          
+                                          .nust {
+                                              display: flex;
+                                              justify-content: center;
+                                              align-items: center;
+                                          }
+                                          
+                                          .target {
+                                              margin-top: 20px;
+                                              display: flex;
+                                              align-items: center;
+                                              max-width: 1000px;
+                                              margin: 0 auto;
+                                              font-family: 'Roboto Mono';
+                                          }
+                                          
+                                          .night {
+                                              max-width: 500px;
+                                              max-height: 400px;
+                                          }
+                                          
+                                          .vive:hover {
+                                              transition-duration: 2s;
+                                              padding: 20px;
+                                              background-color: transparent;
+                                              cursor: pointer;
+                                              border-radius: 12%;
+                                          }
+                                          
+                                          .funct {
+                                              max-width: 500px;
+                                              background-color: #efebfa;
+                                              border-radius: 12px;
+                                              box-shadow: 0px 0px 20px #00000028;
+                                              padding: 2rem;
+                                              position: absolute;
+                                              margin-left: 20%;
+                                          }
+                                          
+                                          .lard {
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .know {
+                                              border: none;
+                                              text-decoration: none;
+                                              color: #fff;
+                                              background-color: #5924ed;
+                                              padding: 16px;
+                                              border-radius: 12px;
+                                              font-size: 20px;
+                                              text-align: center;
+                                          }
+                                          
+                                          .proo {
+                                              border: none;
+                                              text-decoration: none;
+                                              color: #5924ed;
+                                              border: 1px solid #5924ed;
+                                              padding: 15px;
+                                              border-radius: 12px;
+                                              font-size: 20px;
+                                              text-align: center;
+                                              margin-left: 10px;
+                                          }
+                                          
+                                          .tir {
+                                              margin-top: 10px;
+                                          }
+                                          
+                                          .usa {
+                                              margin-top: 10px;
+                                              font-size: 18px;
+                                          }
+                                          
+                                          .targetkill {
+                                              padding-top: 7rem;
+                                              align-items: center;
+                                              display: flex;
+                                              justify-content: flex-end;
+                                              max-width: 1000px;
+                                              margin: 0 auto;
+                                              font-family: 'Roboto Mono';
+                                          }
+                                          
+                                          .functkill {
+                                              max-width: 500px;
+                                              background-color: #efebfa;
+                                              border-radius: 12px;
+                                              box-shadow: 0px 0px 20px #00000028;
+                                              padding: 2rem;
+                                              position: absolute;
+                                              margin-right: 20%;
+                                              margin-top: 20px;
+                                          }
+                                          
+                                          .self {
+                                              padding-top: 7rem;
+                                          }
+                                          
+                                          .man {
+                                              height: 200px;
+                                              width: 200px;
+                                          }
+                                          
+                                          .dolo {
+                                              color: white;
+                                              width: 30%;
+                                          }
+                                          
+                                          .final {
+                                              width: 30%;
+                                              height: 30%;
+                                          }
+                                          
+                                          .from {
+                                              margin-bottom: 0%;
+                                          }
+                                          
+                                          #footer {
+                                              margin-top: 7rem;
+                                              background-color: #311580;
+                                              color: white;
+                                              padding: 10rem 0 5rem 0;
+                                          }
+                                          
+                                          #footer footer {
+                                              display: flex;
+                                              align-items: flex-start;
+                                              justify-content: flex-start;
+                                              gap: 2rem;
+                                          }
+                                          
+                                          #footer footer .col-1 {
+                                              flex: 3;
+                                          }
+                                          
+                                          #footer footer .col-2,
+                                          #footer footer .col-3,
+                                          #footer footer .col-4 {
+                                              flex: 2;
+                                          }
+                                          
+                                          #footer footer .col-4 {
+                                              flex: 1;
+                                          }
+                                          
+                                          #footer footer .col-1 .logo img {
+                                              max-width: 100px;
+                                              margin-bottom: 2rem;
+                                          }
+                                          
+                                          #footer footer .col-1 p {
+                                              color: white;
+                                          }
+                                          
+                                          #footer footer .column-heading {
+                                              font-family: 'Montserrat';
+                                              font-size: 2rem;
+                                              margin-bottom: 2rem;
+                                              text-transform: uppercase;
+                                              line-height: 1.5em;
+                                          }
+                                          
+                                          #footer footer ul {
+                                              list-style: none;
+                                          }
+                                          
+                                          #footer footer ul li {
+                                              border-radius: 4px;
+                                          }
+                                          
+                                          #footer footer ul li:hover {
+                                              background-color: white;
+                                          }
+                                          
+                                          #footer footer ul li:hover a {
+                                              color: var(--primary-color);
+                                          }
+                                          
+                                          #footer footer ul li a {
+                                              display: inline-block;
+                                              width: 100%;
+                                              color: white;
+                                              font-size: 1.7rem;
+                                              padding: 0.5rem;
+                                          }
+                                          
+                                          #footer footer .col-4 ul {
+                                              display: flex;
+                                              flex-wrap: wrap;
+                                          }
+                                          
+                                          #footer footer .col-4 ul li a {
+                                              min-width: 50px;
+                                          }
+                                          
+                                          @media only screen and (max-width: 768px) {
+                                              #footer footer {
+                                                  flex-direction: column;
+                                                  justify-content: center;
+                                                  text-align: center;
+                                              }
+                                              #footer footer .col-1,
+                                              #footer footer .col-2,
+                                              #footer footer .col-3,
+                                              #footer footer .col-4 {
+                                                  width: 100%;
+                                                  margin-bottom: 3rem;
+                                              }
+                                              #footer footer .col-4 ul {
+                                                  width: fit-content;
+                                                  margin: 0 auto;
+                                              }
+                                          }
+                                          /* copyright Section */
+                                          
+                                          #copyright {
+                                              padding: 1rem 0;
+                                              background-color: #221052;
+                                          }
+                                          
+                                          #copyright p {
+                                              color: white;
+                                              margin: 1rem;
+                                              font-size: 1.4rem;
+                                          }
+                                          
+                                          @media only screen and (max-width: 768px) {
+                                              #copyright p {
+                                                  text-align: center;
+                                              }
+                                          }
